@@ -1,0 +1,62 @@
+@mixin absCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == xs-phone {
+    @media only screen and (max-width: 30em) {
+      @content;
+    } //400px
+  }
+
+  @if $breakpoint == phone {
+    @media only screen and (max-width: 37.5em) {
+      @content;
+    } //600px
+  }
+
+  @if $breakpoint == tab-port {
+    @media only screen and (max-width: 56.25em) {
+      @content;
+    } //900px
+  }
+
+  @if $breakpoint == tab-land {
+    @media only screen and (max-width: 75em) {
+      @content;
+    } //1200px
+  }
+}
+
+@mixin video-container($normal-width, $small-width) {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax($normal-width, 1fr));
+  gap: 4rem;
+  justify-items: center;
+
+  @include respond(tab-port) {
+    grid-template-columns: repeat(auto-fill, minmax($small-width 1fr));
+  }
+}
+
+@mixin play-button {
+  position: absolute;
+  font-size: 5rem;
+  color: $defaultDark;
+  background: var(--bg-color);
+  padding: 0.5rem;
+  border-radius: 50%;
+  @include absCenter;
+  top: 20%;
+  opacity: 0;
+  transition: 0.4s;
+}
+
+@mixin overflow-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

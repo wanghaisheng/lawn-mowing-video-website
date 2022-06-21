@@ -1,0 +1,31 @@
+@import "./mixins";
+
+.pad-default{
+    padding: 12rem 5rem 5rem;
+
+   @include respond(phone){
+       padding: 12rem 2rem 5rem;
+   }
+}
+
+
+.scrollbar::-webkit-scrollbar {
+  width: 10px;
+  cursor: pointer;
+}
+
+/* Track */
+.scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+.scrollbar::-webkit-scrollbar-thumb {
+ background: rgb(103, 103, 103);
+ transition: 0.3s all;
+}
+
+/* Handle on hover */
+.scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgb(126, 126, 126);
+}

@@ -1,0 +1,110 @@
+@import "../../../sass/global";
+
+.video-card {
+  width: 100%;
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+
+  &__img-container {
+    height: 20rem;
+    position: relative;
+    transition: 0.2s filter ease;
+
+    &:hover {
+      filter: contrast(80%);
+    }
+  }
+
+  &__play {
+    @include play-button;
+  }
+
+  &__img-container:hover &__play {
+    opacity: 1;
+    top: 50%;
+  }
+
+  &__content {
+    padding: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__title {
+      width: 70%;
+      @include overflow-text;
+      font-size: 1.8rem;
+    }
+  }
+
+   &__info{
+     font-size: 1.5rem;
+
+     p{
+       font-size: 1.3rem;
+       display: flex;
+       justify-content: space-between;
+       padding-right: 2rem;
+     }
+
+     span:not(:first-child){
+       margin-left: 1rem;
+     }
+   }
+}
+
+.menu {
+  position: relative;
+
+  &__open-icon {
+    font-size: 4rem;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: 0.2s;
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgba($color-white, 0.1);
+    }
+  }
+
+  &__items {
+    display: flex;
+    position: absolute;
+    bottom: -2.5rem;
+    right: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.4s;
+
+    li {
+      font-size: 3rem;
+      background: rgb(97, 97, 97);
+      margin: 0 0.5rem;
+      cursor: pointer;
+      padding: 0.5rem 1rem;
+      display: flex;
+      border-radius: var(--border-radius-md);
+      color: white;
+      transition: 0.3s background;
+
+      &:hover {
+        background: var(--defaultLight);
+        color: var(--bg-color);
+      }
+
+      &:hover svg.item-active{
+         color: var(--bg-color);
+      }
+
+      svg.item-active{
+        color: $default;
+      }
+    }
+  }
+
+   &__items.active{
+     visibility: visible;
+     opacity: 1;
+   }
+}

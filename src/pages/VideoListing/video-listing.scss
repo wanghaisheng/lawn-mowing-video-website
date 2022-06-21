@@ -1,0 +1,7 @@
+@import "../../sass/global";
+
+.explore-section {
+  &__videos {
+    @include video-container(35rem, 30rem);
+  }
+}
